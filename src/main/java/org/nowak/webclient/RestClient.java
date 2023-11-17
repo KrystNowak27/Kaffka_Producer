@@ -2,6 +2,7 @@ package org.nowak.webclient;
 
 import org.nowak.dto.ClientResponse;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Profile;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
@@ -9,10 +10,12 @@ import org.springframework.web.client.RestTemplate;
 import java.util.Arrays;
 import java.util.List;
 
+
+@Profile("prod")
 @Component
 public class RestClient {
     @Value("${spring.rest-client.url}")
-    public  String url;
+    public String url;
 
     private final RestTemplate restTemplate = new RestTemplate();
 
